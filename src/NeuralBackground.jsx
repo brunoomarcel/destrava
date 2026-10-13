@@ -66,7 +66,7 @@ function NeuralBackground() {
 
       const centerX = width * 0.5;
       const centerY = height * 0.47;
-      const pulse = 1 + Math.sin(time * 0.7) * 0.018;
+      const pulse = 1 + Math.sin(time * 1.05) * 0.018;
       const projected = points.map((point) => {
         const depth = point.depth * 80;
         const scale = (0.94 + depth / 900) * pulse;
@@ -109,7 +109,7 @@ function NeuralBackground() {
 
       projected.forEach((point) => {
         const nearby = pointer.active ? Math.max(0, 1 - Math.hypot(point.x - pointer.x, point.y - pointer.y) / 155) : 0;
-        const flicker = Math.max(0, Math.sin(time * 1.8 + point.phase * 30));
+        const flicker = Math.max(0, Math.sin(time * 2.35 + point.phase * 30));
         const alpha = Math.min(0.72, 0.2 + point.depth * 0.4 + nearby * 0.45 + flicker * 0.07);
         const size = (point.glow > 0.9 ? 1.35 : 0.72) + nearby * 1.05;
         context.fillStyle = point.glow > 0.86

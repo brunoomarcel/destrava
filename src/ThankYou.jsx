@@ -1,3 +1,5 @@
+import NeuralBackground from "./NeuralBackground";
+
 export function playSuccessChime() {
   const AudioContext = window.AudioContext || window.webkitAudioContext;
 
@@ -30,9 +32,7 @@ export function playSuccessChime() {
 function ThankYou() {
   return (
     <main className="thank-you-page">
-      <div className="celebration-particles" aria-hidden="true">
-        {Array.from({ length: 14 }, (_, index) => <span key={index} />)}
-      </div>
+      <NeuralBackground />
       <section className="thank-you-card" aria-labelledby="thank-you-title">
         <div className="thank-you-check" aria-hidden="true">✓</div>
         <p className="eyebrow">Inscrição confirmada</p>
