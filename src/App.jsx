@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import expertImage from "../assets/expert-lizandra.jpg";
 import heroImage from "../assets/produtividade-evento.png";
 import { supabase } from "./lib/supabase";
-import ThankYou from "./ThankYou";
+import ThankYou, { playSuccessChime } from "./ThankYou";
 
 const initialFormData = {
   name: "",
@@ -71,6 +71,13 @@ function App() {
     }
 
     setIsSubmitting(true);
+
+    // Dispara durante a interação do usuário para evitar o bloqueio de autoplay.
+    try {
+      playSuccessChime();
+    } catch {
+      // A animação da página de obrigado continua mesmo sem áudio.
+    }
 
     const { error } = await supabase.from("leads").insert({
       name,

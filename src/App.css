@@ -299,6 +299,8 @@ input:focus {
 }
 
 .thank-you-page {
+  position: relative;
+  isolation: isolate;
   min-height: 100vh;
   display: grid;
   place-items: center;
@@ -306,6 +308,56 @@ input:focus {
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.9), rgba(8, 6, 5, 0.7)),
     url("../assets/produtividade-evento.png") center / cover;
+}
+
+.celebration-particles {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.celebration-particles span {
+  position: absolute;
+  top: -12px;
+  left: var(--left);
+  width: 8px;
+  height: 16px;
+  border-radius: 2px;
+  background: var(--gold-light);
+  opacity: 0;
+  transform: rotate(var(--rotation));
+  animation: fall 3.4s var(--delay) ease-in forwards;
+}
+
+.celebration-particles span:nth-child(3n) {
+  background: #fff0bd;
+}
+
+.celebration-particles span:nth-child(3n + 1) {
+  background: var(--bronze);
+}
+
+.celebration-particles span:nth-child(1) { --left: 8%; --delay: 0.05s; --rotation: 18deg; }
+.celebration-particles span:nth-child(2) { --left: 16%; --delay: 0.25s; --rotation: 72deg; }
+.celebration-particles span:nth-child(3) { --left: 27%; --delay: 0.1s; --rotation: 42deg; }
+.celebration-particles span:nth-child(4) { --left: 38%; --delay: 0.4s; --rotation: 90deg; }
+.celebration-particles span:nth-child(5) { --left: 49%; --delay: 0.18s; --rotation: 28deg; }
+.celebration-particles span:nth-child(6) { --left: 58%; --delay: 0.32s; --rotation: 64deg; }
+.celebration-particles span:nth-child(7) { --left: 67%; --delay: 0.08s; --rotation: 12deg; }
+.celebration-particles span:nth-child(8) { --left: 75%; --delay: 0.45s; --rotation: 80deg; }
+.celebration-particles span:nth-child(9) { --left: 84%; --delay: 0.2s; --rotation: 35deg; }
+.celebration-particles span:nth-child(10) { --left: 91%; --delay: 0.55s; --rotation: 100deg; }
+.celebration-particles span:nth-child(11) { --left: 12%; --delay: 0.7s; --rotation: 52deg; }
+.celebration-particles span:nth-child(12) { --left: 31%; --delay: 0.62s; --rotation: 20deg; }
+.celebration-particles span:nth-child(13) { --left: 72%; --delay: 0.78s; --rotation: 75deg; }
+.celebration-particles span:nth-child(14) { --left: 88%; --delay: 0.68s; --rotation: 44deg; }
+
+@keyframes fall {
+  0% { opacity: 0; transform: translateY(-20px) rotate(var(--rotation)); }
+  15% { opacity: 0.95; }
+  100% { opacity: 0; transform: translateY(105vh) rotate(calc(var(--rotation) + 220deg)); }
 }
 
 .thank-you-card {
@@ -372,6 +424,12 @@ input:focus {
   display: block;
   margin-top: 13px;
   color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .celebration-particles span {
+    animation: none;
+  }
 }
 
 @media (max-width: 900px) {
