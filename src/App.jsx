@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import expertImage from "../assets/expert-lizandra.jpg";
 import heroImage from "../assets/produtividade-evento.png";
 import { supabase } from "./lib/supabase";
+import ThankYou from "./ThankYou";
 
 const initialFormData = {
   name: "",
@@ -11,6 +12,7 @@ const initialFormData = {
 };
 
 function App() {
+  const [isSubmitted, setIsSubmitted] = useState(window.location.pathname === "/obrigado");
   const [formData, setFormData] = useState(initialFormData);
   const [message, setMessage] = useState("");
   const [hasError, setHasError] = useState(false);
@@ -22,6 +24,15 @@ function App() {
     setFormData((currentData) => ({
       ...currentData,
       [name]: value,
+    }));
+  };
+
+  const handleWhatsappChange = (event) => {
+    const onlyDigits = event.target.value.replace(/\D/g, "").slice(0, 11);
+
+    setFormData((currentData) => ({
+      ...currentData,
+      whatsapp: onlyDigits,
     }));
   };
 
@@ -78,8 +89,14 @@ function App() {
     }
 
     setFormData(initialFormData);
+    window.history.pushState({}, "", "/obrigado");
+    setIsSubmitted(true);
     setMessage(`${name}, você entrou na lista para ser avisado neste teste local.`);
   };
+
+  if (isSubmitted) {
+    return <ThankYou />;
+  }
 
   return (
     <main className="capture-page" id="top">
@@ -147,8 +164,10 @@ function App() {
               inputMode="tel"
               placeholder="(00) 00000-0000"
               required
+              maxLength={11}
+              pattern="[0-9]{10,11}"
               value={formData.whatsapp}
-              onChange={handleChange}
+              onChange={handleWhatsappChange}
             />
           </label>
 
