@@ -1,0 +1,357 @@
+:root {
+  --ink: #080605;
+  --muted: #8d8174;
+  --paper: #080605;
+  --surface: #fff8ec;
+  --gold: #e8b56a;
+  --gold-light: #ffd995;
+  --bronze: #a66d36;
+  --line: rgba(232, 181, 106, 0.32);
+  --shadow: 0 24px 90px rgba(0, 0, 0, 0.42);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.capture-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(24px, 4vw, 64px);
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.capture-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 400px);
+  gap: clamp(32px, 5vw, 76px);
+  align-items: center;
+  z-index: 2;
+  width: min(1320px, 100%);
+  min-height: auto;
+}
+
+.capture-hero::before {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 22% 18%, rgba(232, 181, 106, 0.16), transparent 28%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(8, 6, 5, 0.82) 48%, rgba(8, 6, 5, 0.66) 100%),
+    linear-gradient(180deg, rgba(8, 6, 5, 0.44) 0%, rgba(8, 6, 5, 0.76) 100%);
+}
+
+.hero-media {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.02) contrast(1.02);
+}
+
+.capture-content {
+  position: relative;
+  z-index: 2;
+  width: min(760px, 100%);
+  color: var(--surface);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: clamp(30px, 5vh, 56px);
+  color: var(--surface);
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.brand-mark {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid rgba(255, 217, 149, 0.64);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--gold-light), var(--bronze));
+  color: var(--ink);
+  font-family: Poppins, system-ui, sans-serif;
+  font-weight: 800;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--gold-light);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  font-family: Poppins, system-ui, sans-serif;
+  line-height: 1.04;
+  letter-spacing: 0;
+}
+
+h1 {
+  max-width: 680px;
+  margin-bottom: 20px;
+  color: var(--gold-light);
+  font-size: clamp(2.5rem, 4vw, 4.35rem);
+  font-weight: 800;
+}
+
+.hero-copy {
+  max-width: 600px;
+  margin-bottom: 0;
+  color: rgba(255, 250, 243, 0.88);
+  font-size: clamp(1.02rem, 1.35vw, 1.18rem);
+}
+
+.expert-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 420px;
+  margin-top: 28px;
+  padding: 12px 14px;
+  border: 1px solid rgba(232, 181, 106, 0.42);
+  border-radius: 8px;
+  background: rgba(8, 6, 5, 0.48);
+  color: var(--surface);
+}
+
+.expert-card img {
+  width: 58px;
+  height: 58px;
+  border: 1px solid rgba(255, 217, 149, 0.58);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 25%;
+}
+
+.expert-card strong,
+.expert-card span {
+  display: block;
+}
+
+.expert-card strong {
+  color: var(--gold-light);
+  font-size: 0.96rem;
+}
+
+.expert-card span {
+  color: rgba(255, 248, 236, 0.72);
+  font-size: 0.86rem;
+}
+
+.signup-form {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+  padding: clamp(22px, 3.2vw, 30px);
+  border: 1px solid rgba(255, 250, 243, 0.52);
+  border-radius: 8px;
+  background: rgba(255, 248, 236, 0.96);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.form-heading {
+  margin-bottom: 2px;
+}
+
+.form-heading h2 {
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-size: clamp(1.9rem, 3.4vw, 2.65rem);
+  font-weight: 800;
+}
+
+.form-heading p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+label {
+  display: grid;
+  gap: 8px;
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid rgba(36, 31, 27, 0.18);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+
+input:focus {
+  border-color: var(--gold);
+  outline: 3px solid rgba(232, 181, 106, 0.24);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 22px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  background: linear-gradient(135deg, #5c3818, var(--gold), #fff0bd);
+  color: var(--ink);
+}
+
+.form-message {
+  min-height: 24px;
+  margin: 0;
+  color: #5c3818;
+  font-weight: 700;
+}
+
+.form-message.error {
+  color: #a8463d;
+}
+
+@media (max-width: 900px) {
+  .capture-page {
+    display: flex;
+    align-items: flex-start;
+    padding: 22px 18px 36px;
+  }
+
+  .capture-hero::before {
+    background:
+      radial-gradient(circle at 20% 16%, rgba(232, 181, 106, 0.18), transparent 34%),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.94) 0%, rgba(8, 6, 5, 0.82) 56%, rgba(8, 6, 5, 0.7) 100%);
+  }
+
+  .capture-hero {
+    grid-template-columns: 1fr;
+    align-items: start;
+    min-height: auto;
+    gap: 28px;
+  }
+
+  .capture-content {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .hero-media img {
+    object-position: 52% center;
+  }
+
+  .brand {
+    justify-content: center;
+    margin-bottom: clamp(42px, 8vh, 76px);
+  }
+
+  h1 {
+    margin-inline: auto;
+    max-width: 620px;
+    font-size: clamp(2.55rem, 9vw, 4rem);
+  }
+
+  .eyebrow,
+  .hero-copy {
+    margin-inline: auto;
+  }
+
+  .expert-card {
+    margin-inline: auto;
+    text-align: left;
+  }
+
+  .signup-form {
+    margin-inline: auto;
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 520px) {
+  .capture-page {
+    padding: 18px 18px 34px;
+  }
+
+  .brand {
+    margin-bottom: 70px;
+  }
+
+  h1 {
+    font-size: clamp(2.45rem, 11.4vw, 3.2rem);
+  }
+
+  .hero-copy {
+    font-size: 1rem;
+  }
+
+  .signup-form {
+    padding: 22px;
+  }
+}
