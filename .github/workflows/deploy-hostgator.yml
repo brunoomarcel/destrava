@@ -32,6 +32,9 @@ jobs:
 
       - name: Gerar build de produção
         run: npm run build
+        env:
+          VITE_SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.SUPABASE_PUBLISHABLE_KEY }}
 
       - name: Enviar dist para a HostGator
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5

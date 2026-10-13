@@ -10,6 +10,8 @@ Este projeto é um frontend Vite. O workflow `.github/workflows/deploy-hostgator
 
    - `HOSTGATOR_FTP_SERVER`: hostname FTP informado pela HostGator, por exemplo `ftp.seudominio.com`.
    - `HOSTGATOR_SERVER_DIR`: `destrava.lizandrasoares.com/` (pasta do document root exibida no Gerenciador de arquivos).
+   - `SUPABASE_URL`: `https://hticokvahchyhcctjyhk.supabase.co`.
+   - `SUPABASE_PUBLISHABLE_KEY`: chave pública `anon`/publishable do projeto Supabase.
 
    Depois, em `Secrets`, crie os dois valores sensíveis:
 

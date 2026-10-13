@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import expertImage from "../assets/expert-lizandra.jpg";
 import heroImage from "../assets/produtividade-evento.png";
+import { supabase } from "./lib/supabase";
 
 const initialFormData = {
   name: "",
   email: "",
   whatsapp: "",
+  consent: false,
 };
 
 function App() {
   const [formData, setFormData] = useState(initialFormData);
   const [message, setMessage] = useState("");
   const [hasError, setHasError] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -22,7 +25,7 @@ function App() {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const name = formData.name.trim();
@@ -46,6 +49,30 @@ function App() {
 
     if (digits.length < 10) {
       setMessage("Confira o WhatsApp com DDD.");
+      setHasError(true);
+      return;
+    }
+
+    if (!formData.consent) {
+      setMessage("Autorize o recebimento de informações sobre o evento.");
+      setHasError(true);
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const { error } = await supabase.from("leads").insert({
+      name,
+      email,
+      whatsapp,
+      consent: true,
+      source: "destrava-landing",
+    });
+
+    setIsSubmitting(false);
+
+    if (error) {
+      setMessage("Não foi possível concluir agora. Tente novamente em instantes.");
       setHasError(true);
       return;
     }
@@ -125,8 +152,23 @@ function App() {
             />
           </label>
 
-          <button className="button button-primary" type="submit">
-            Quero acesso exclusivo
+          <label className="consent-field">
+            <input
+              type="checkbox"
+              name="consent"
+              checked={formData.consent}
+              onChange={(event) =>
+                setFormData((currentData) => ({
+                  ...currentData,
+                  consent: event.target.checked,
+                }))
+              }
+            />
+            <span>Aceito receber informações sobre o evento e comunicações relacionadas.</span>
+          </label>
+
+          <button className="button button-primary" type="submit" disabled={isSubmitting}>
+            {isSubmitting ? "Enviando..." : "Quero acesso exclusivo"}
           </button>
           <p className={`form-message${hasError ? " error" : ""}`} role="status" aria-live="polite">
             {message}

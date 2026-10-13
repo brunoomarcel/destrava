@@ -244,6 +244,21 @@ input:focus {
   outline: 3px solid rgba(232, 181, 106, 0.24);
 }
 
+.consent-field {
+  display: flex;
+  grid-template-columns: auto 1fr;
+  align-items: flex-start;
+  gap: 9px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.consent-field input {
+  width: auto;
+  margin-top: 3px;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -265,6 +280,11 @@ input:focus {
 .button-primary {
   background: linear-gradient(135deg, #5c3818, var(--gold), #fff0bd);
   color: var(--ink);
+}
+
+.button:disabled {
+  cursor: wait;
+  opacity: 0.7;
 }
 
 .form-message {
