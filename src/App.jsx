@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import expertImage from "../assets/expert-lizandra.jpg";
-import heroImage from "../assets/produtividade-evento.png";
 import { supabase } from "./lib/supabase";
 import ThankYou, { playSuccessChime } from "./ThankYou";
+import NeuralBackground from "./NeuralBackground";
 
 const initialFormData = {
   name: "",
@@ -107,18 +107,15 @@ function App() {
 
   return (
     <main className="capture-page" id="top">
+      <NeuralBackground />
       <section className="capture-hero" aria-labelledby="hero-title">
-        <div className="hero-media" aria-hidden="true">
-          <img src={heroImage} alt="" />
-        </div>
-
         <div className="capture-content">
-          <a className="brand" href="#top" aria-label="Método Destrava">
-            <span className="brand-mark">P</span>
-            <span>Método Destrava</span>
-          </a>
-
-          <p className="eyebrow">Evento online gratuito</p>
+          <div className="hero-meta">
+            <a className="brand" href="#top" aria-label="Método Destrava">
+              <span className="brand-mark">P</span>
+            </a>
+            <p className="eyebrow">Evento online gratuito</p>
+          </div>
           <h1 id="hero-title">Eu vou te mostrar como transformar procrastinação em execução</h1>
           <p className="hero-copy">
             No dia <strong>29/10</strong>, você vai participar de uma aula exclusiva, onde vou te mostrar como destravar foco,
@@ -200,7 +197,11 @@ function App() {
             {message}
           </p>
         </form>
+
       </section>
+      <div className="site-footer">
+        © {new Date().getFullYear()} Método Destrava. Todos os direitos reservados.
+      </div>
     </main>
   );
 }
