@@ -72,6 +72,13 @@ function App() {
 
     setIsSubmitting(true);
 
+    if (!supabase) {
+      setIsSubmitting(false);
+      setMessage("O formulário ainda não está configurado. Tente novamente mais tarde.");
+      setHasError(true);
+      return;
+    }
+
     // Dispara durante a interação do usuário para evitar o bloqueio de autoplay.
     try {
       playSuccessChime();
