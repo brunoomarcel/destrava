@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import expertImage from "../assets/expert-lizandra.jpg";
+import logo from "../assets/logo.jpeg";
 import { supabase } from "./lib/supabase";
 import ThankYou, { playSuccessChime } from "./ThankYou";
 import NeuralBackground from "./NeuralBackground";
@@ -119,7 +120,7 @@ function App() {
         <div className="capture-content">
           <div className="hero-meta">
             <a className="brand" href="#top" aria-label="Método Destrava">
-              <span className="brand-mark">P</span>
+              <img className="brand-logo" src={logo} alt="Destrava — Produtividade sem culpa" width="56" height="56" />
             </a>
             <p className="eyebrow">Evento online gratuito</p>
           </div>
