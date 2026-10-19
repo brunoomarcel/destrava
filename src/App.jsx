@@ -41,7 +41,7 @@ function App() {
     event.preventDefault();
 
     const name = formData.name.trim();
-    const email = formData.email.trim();
+    const email = formData.email.trim().toLowerCase();
     const whatsapp = formData.whatsapp.trim();
     const digits = whatsapp.replace(/\D/g, "");
 
@@ -53,7 +53,7 @@ function App() {
       return;
     }
 
-    if (!email.includes("@") || !email.includes(".")) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setMessage("Confira o e-mail antes de continuar.");
       setHasError(true);
       return;
@@ -92,13 +92,18 @@ function App() {
       email,
       whatsapp,
       consent: true,
+      consent_version: "destrava-2026-10",
       source: "destrava-landing",
     });
 
     setIsSubmitting(false);
 
     if (error) {
-      setMessage("Não foi possível concluir agora. Tente novamente em instantes.");
+      if (error.code === "23505") {
+        setMessage("Este e-mail já está cadastrado para receber os avisos do evento.");
+      } else {
+        setMessage("Não foi possível concluir agora. Tente novamente em instantes.");
+      }
       setHasError(true);
       return;
     }

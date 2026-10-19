@@ -4,9 +4,21 @@ create table if not exists public.leads (
   email text not null,
   whatsapp text not null,
   consent boolean not null default false,
+  consent_at timestamptz not null default now(),
+  consent_version text not null default 'destrava-2026-10',
+  unsubscribed_at timestamptz,
   source text not null default 'destrava-landing',
+  email_normalized text generated always as (lower(trim(email))) stored,
   created_at timestamptz not null default now()
 );
+
+alter table public.leads add column if not exists consent_at timestamptz not null default now();
+alter table public.leads add column if not exists consent_version text not null default 'destrava-2026-10';
+alter table public.leads add column if not exists unsubscribed_at timestamptz;
+alter table public.leads add column if not exists email_normalized text generated always as (lower(trim(email))) stored;
+
+create unique index if not exists leads_email_normalized_key
+  on public.leads (email_normalized);
 
 alter table public.leads enable row level security;
 
