@@ -434,8 +434,21 @@ input::placeholder {
 }
 
 .thank-you-next-step span {
+  display: block;
   color: rgba(255, 248, 236, 0.68);
   font-size: 0.84rem;
+}
+
+.thank-you-email-tip {
+  margin: 16px auto 0;
+  max-width: 390px;
+  color: rgba(255, 248, 236, 0.72);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.thank-you-email-tip strong {
+  color: var(--gold-light);
 }
 
 .thank-you-date {

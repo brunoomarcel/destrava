@@ -39,8 +39,9 @@ function ThankYou() {
         <h1 id="thank-you-title">Você deu o primeiro passo.</h1>
         <p className="thank-you-lead">Sua vaga na lista do evento está garantida.</p>
         <div className="thank-you-next-step">
-          <strong>Agora falta só uma coisa:</strong>
-          <span>entrar no grupo para receber os avisos, o link e os lembretes do lançamento.</span>
+          <strong>Agora faça estas duas coisas:</strong>
+          <span>Entre no grupo para receber os avisos, o link da aula e os lembretes do lançamento.</span>
+          <span>Depois, confira sua caixa de entrada: enviamos um e-mail com uma pesquisa rápida.</span>
         </div>
         <p className="thank-you-date">O evento acontece em 29/10.</p>
         <a
@@ -49,9 +50,11 @@ function ThankYou() {
           target="_blank"
           rel="noreferrer"
         >
-          Quero receber os avisos no grupo
+          ENTRAR NO GRUPO
         </a>
-        <small>É gratuito e você pode sair quando quiser.</small>
+        <p className="thank-you-email-tip">
+          Não encontrou o e-mail? Procure por <strong>suporte@casullione.com</strong> no spam ou na aba Promoções.
+        </p>
       </section>
     </main>
   );

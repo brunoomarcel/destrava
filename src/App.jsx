@@ -12,9 +12,52 @@ const initialFormData = {
   consent: false,
 };
 
+const trackingStorageKey = "destrava_tracking";
+const paidMediums = new Set(["paid", "paid_social", "paid_search", "cpc", "ppc", "cpm"]);
+const paidSources = new Set(["meta", "facebook", "instagram", "fb", "ig"]);
+
+function readStoredTracking() {
+  try {
+    return JSON.parse(window.sessionStorage.getItem(trackingStorageKey) || "{}");
+  } catch {
+    return {};
+  }
+}
+
+function readTrackingData() {
+  const stored = readStoredTracking();
+  const params = new URLSearchParams(window.location.search);
+  const utmSource = params.get("utm_source")?.trim().toLowerCase() || stored.utm_source || "";
+  const utmMedium = params.get("utm_medium")?.trim().toLowerCase() || stored.utm_medium || "";
+  const path = window.location.pathname || "/";
+  const isOrganicLink = path === "/org" || stored.landing_path === "/org";
+  const isPaidTraffic = paidMediums.has(utmMedium) || paidSources.has(utmSource);
+
+  const tracking = {
+    traffic_source: isOrganicLink ? "organico" : isPaidTraffic ? "trafego-pago" : stored.traffic_source || "direto",
+    utm_source: utmSource || null,
+    utm_medium: utmMedium || null,
+    utm_campaign: params.get("utm_campaign")?.trim() || stored.utm_campaign || null,
+    utm_content: params.get("utm_content")?.trim() || stored.utm_content || null,
+    utm_term: params.get("utm_term")?.trim() || stored.utm_term || null,
+    fbclid: params.get("fbclid")?.trim() || stored.fbclid || null,
+    landing_path: stored.landing_path || path,
+    referrer: stored.referrer || document.referrer || null,
+  };
+
+  try {
+    window.sessionStorage.setItem(trackingStorageKey, JSON.stringify(tracking));
+  } catch {
+    // Tracking must never block the registration flow.
+  }
+
+  return tracking;
+}
+
 function App() {
   const [isSubmitted, setIsSubmitted] = useState(window.location.pathname === "/obrigado");
   const [formData, setFormData] = useState(initialFormData);
+  const [trackingData] = useState(readTrackingData);
   const [message, setMessage] = useState("");
   const [hasError, setHasError] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -94,6 +137,7 @@ function App() {
       consent: true,
       consent_version: "destrava-2026-10",
       source: "destrava-landing",
+      ...trackingData,
     });
 
     setIsSubmitting(false);

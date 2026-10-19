@@ -27,4 +27,13 @@ Este projeto é um frontend Vite. O workflow `.github/workflows/deploy-hostgator
 - Se a conta FTP abrir diretamente dentro de `/home/grupocasaa24cd8e`, use `destrava.lizandrasoares.com/` sem `/home/...` no início.
 - Não coloque usuário, senha ou chaves FTP em arquivos do repositório.
 - O workflow não apaga arquivos remotos que não estejam no build (`dangerous-clean-slate: false`).
+
+## Rastreamento de origem
+
+O formulário salva a origem do primeiro acesso e os parâmetros UTM no Supabase. Antes de testar ou publicar, execute o bloco atualizado de `supabase/schema.sql` no SQL Editor do projeto.
+
+- Bio orgânica: `https://destrava.casullione.com/org`
+- Meta Ads: `https://destrava.casullione.com/?utm_source=meta&utm_medium=paid_social&utm_campaign=destrava_outubro&utm_content=criativo_01`
+
+Os leads terão `traffic_source` como `organico`, `trafego-pago` ou `direto`, além de `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`, `fbclid`, `landing_path` e `referrer`.
 - Se a HostGator não aceitar FTPS, altere `protocol: ftps` para `ftp` somente depois de confirmar essa limitação com o suporte.
