@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import NeuralBackground from "./NeuralBackground";
 
 export function playSuccessChime() {
@@ -30,6 +31,16 @@ export function playSuccessChime() {
 }
 
 function ThankYou() {
+  const hasTrackedLead = useRef(false);
+
+  useEffect(() => {
+    if (hasTrackedLead.current || typeof window.fbq !== "function") return;
+
+    window.fbq("track", "Lead");
+    // Avoid duplicate conversions when StrictMode runs effects twice.
+    hasTrackedLead.current = true;
+  }, []);
+
   return (
     <main className="thank-you-page">
       <NeuralBackground />
