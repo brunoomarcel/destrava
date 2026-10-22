@@ -57,7 +57,7 @@ function ThankYou() {
         <p className="thank-you-date">O evento acontece em 29/10.</p>
         <a
           className="button button-primary"
-          href="https://chat.whatsapp.com/FIXAPXQCjpJLaOX6ZTIRyx"
+          href="https://chat.whatsapp.com/KDWsG4CZ0vUF0xSm6gxkYv"
           target="_blank"
           rel="noreferrer"
         >
