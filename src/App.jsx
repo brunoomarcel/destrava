@@ -4,6 +4,7 @@ import logo from "../assets/logo.jpeg";
 import { supabase } from "./lib/supabase";
 import ThankYou, { playSuccessChime } from "./ThankYou";
 import NeuralBackground from "./NeuralBackground";
+import Vsl from "./Vsl";
 
 const initialFormData = {
   name: "",
@@ -55,6 +56,10 @@ function readTrackingData() {
 }
 
 function App() {
+  if (window.location.pathname === "/lp-vsl") {
+    return <Vsl />;
+  }
+
   const [isSubmitted, setIsSubmitted] = useState(window.location.pathname === "/obrigado");
   const [formData, setFormData] = useState(initialFormData);
   const [trackingData] = useState(readTrackingData);
