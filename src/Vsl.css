@@ -472,5 +472,6 @@ body:has(.vsl-page) { background: #fbf8f2; }
 @media (max-width: 780px) {
   .vsl-hero-inner { padding-bottom: 72px; }
   .vsl-hero-points { padding-left: 8px; padding-right: 8px; }
+  .vsl-hero-points { margin-top: 18px; }
   .vsl-page .vsl-hero-buy { margin-top: 28px; }
 }
