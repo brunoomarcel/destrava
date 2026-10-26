@@ -49,7 +49,7 @@ export default function Vsl() {
     <main className="vsl-page">
       <section id="top" className="vsl-hero">
         <div className="vsl-hero-inner">
-            <h1>Elimine o ciclo de procrastinação e coloque em movimento o projeto que você vem adiando</h1>
+            <h1>Elimine o ciclo de procrastinação e coloque seu projeto em movimento.</h1>
             <p className="vsl-hero-lead">Em uma jornada de 6 semanas, o Destrava vai te ajudar a entender o que acontece entre a intenção e a ação, escolher o próximo passo possível e aprender a retomar quando a vida sair do plano — sem depender de culpa, perfeição ou motivação.</p>
             <div id="video" className="vsl-player" role="region" aria-label="Apresentação do Método Destrava">
               {/* Substituir pelo player da VSL quando o vídeo for fornecido. */}
