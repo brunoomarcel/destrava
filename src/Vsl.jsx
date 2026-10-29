@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import expertImage from "../assets/expert-lizandra.jpg";
 import guaranteeSeal from "../assets/selo-garantia-destrava.png";
+import paymentMethods from "../assets/formas-pagamento-destrava.png";
 import "./Vsl.css";
 
 const checkoutUrl = "#checkout";
@@ -71,6 +72,17 @@ export default function Vsl() {
               <li>Mais de 1.500 vidas impactadas na prática clínica.</li>
               <li>Mais de 1.200 pessoas no método Vencendo a Procrastinação.</li>
             </ul>
+        </div>
+      </section>
+      <section className="vsl-section vsl-method-intro">
+        <div className="vsl-centered">
+          <h2>O que é o Método <em>Destrava?</em></h2>
+          <p className="vsl-method-lead">Uma jornada guiada de 6 semanas para entender o que trava sua ação, colocar um projeto real em movimento e aprender a continuar mesmo quando a rotina sair do plano.</p>
+        </div>
+        <div className="vsl-method-grid">
+          <article><span className="vsl-method-icon" aria-hidden="true">◉</span><strong>Entenda o que trava você</strong><p>Observe o ciclo de adiamento sem culpa e descubra o que acontece antes de você parar.</p></article>
+          <article><span className="vsl-method-icon" aria-hidden="true">↗</span><strong>Aplique em um projeto real</strong><p>Transforme o aprendizado em passos concretos para algo importante que você quer colocar em movimento.</p></article>
+          <article><span className="vsl-method-icon" aria-hidden="true">↻</span><strong>Aprenda a retomar</strong><p>Quando um imprevisto acontecer, ajuste o plano sem transformar uma pausa em desistência.</p></article>
         </div>
       </section>
 
@@ -169,15 +181,19 @@ export default function Vsl() {
       </section>
 
       <section id="oferta" className="vsl-offer vsl-section">
-        <p className="vsl-eyebrow">Primeira turma do método</p>
-        <h2>O que está incluído na jornada de <em>6 semanas</em></h2>
+        <p className="vsl-eyebrow">Primeira turma</p>
+        <h2>Não deixe seu projeto para depois — <em>comece agora</em></h2>
         <div id="checkout" className="vsl-offer-box">
-          <span className="vsl-offer-kicker">Método Destrava</span>
-          <h3>6 semanas para aprender, praticar e colocar um projeto em movimento</h3>
-          <p className="vsl-offer-intro">O Método Destrava reúne aulas e acompanhamento para você sair do ciclo de tentar, travar e se punir, com um caminho aplicado à sua vida.</p>
+          <h3>6 semanas de acompanhamento para colocar um projeto real em movimento</h3>
+          <p className="vsl-offer-intro">Você recebe aulas, acompanhamento e protocolos práticos para entender o que trava sua ação, começar com mais clareza e aprender a retomar sem culpa.</p>
           <ul className="vsl-offer-list"><li>Movimento 1: Fotografar</li><li>Movimento 2: Entender</li><li>Movimento 3: Reconfigurar</li><li>Movimento 4: Implementar</li><li>Movimento 5: Expandir</li><li>Projeto-Roma para aplicação prática</li><li>Protocolo de Decisão e Protocolo de Recuperação</li></ul>
-          <div className="vsl-price"><strong>R$ 497</strong> à vista <span>ou 12x de R$ 51,40</span></div>
+          <p className="vsl-price-anchor"><s>De R$ 1.800</s> por apenas</p>
+          <div className="vsl-price"><strong><small>12x de</small> R$ 51,40</strong><span>R$ 497 à vista</span></div>
           <a className="vsl-cta" href="https://pay.hotmart.com/Q108052512F?checkoutMode=10">QUERO DESTRAVAR <span aria-hidden="true">→</span></a>
+          <div className="vsl-payment-methods">
+            <img src={paymentMethods} alt="Pix e bandeiras de cartão aceitas no checkout" />
+            <p>Pagamento seguro via Pix ou cartão de crédito</p>
+          </div>
           <p className="vsl-guarantee">Garantia de 30 dias. Se aplicar as orientações e não perceber resultado, você pode pedir o reembolso dentro do prazo.</p>
         </div>
       </section>

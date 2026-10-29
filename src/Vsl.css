@@ -582,3 +582,64 @@ body:has(.vsl-page) { background: #fbf8f2; }
 .vsl-page .vsl-offer-box .vsl-cta { background: #4f6b58; color: #fff; }
 .vsl-page .vsl-offer-box .vsl-cta:hover { background: #3d5745; }
 .vsl-page .vsl-offer-box .vsl-price { color: #6e5c50; }
+/* Formas de pagamento na oferta. */
++.vsl-payment-methods { align-items: center; display: flex; flex-direction: column; gap: 8px; margin: 16px auto 4px; max-width: 320px; text-align: center; }
++.vsl-payment-methods img { display: block; height: auto; max-width: 100%; object-fit: contain; width: 320px; }
+.vsl-payment-methods p { color: #6e5c50; font-size: 12px; line-height: 1.5; margin: 0; }
+
+@media (max-width: 780px) {
+  .vsl-payment-methods { margin-top: 16px; }
+  .vsl-payment-methods img { width: 100%; }
+  .vsl-payment-methods p { font-size: 11px; }
+}
+.vsl-page .vsl-payment-methods { align-items: center; display: flex; flex-direction: column; margin-left: auto; margin-right: auto; text-align: center; }
+.vsl-page .vsl-payment-methods img { display: block; margin-left: auto; margin-right: auto; }
+.vsl-page .vsl-payment-methods p { text-align: center; }
+.vsl-page .vsl-offer-box > .vsl-cta { font-size: 14px; }
+.vsl-page .vsl-cta { animation: vsl-cta-pulse 2.6s ease-in-out infinite; }
+
+@keyframes vsl-cta-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(79, 107, 88, 0); transform: translateY(0); }
+  50% { box-shadow: 0 0 0 8px rgba(79, 107, 88, .14); transform: translateY(-1px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vsl-page .vsl-cta { animation: none; }
+}
+.vsl-page .vsl-hero-points li::before,
+.vsl-page .vsl-tangible-list li::before,
+.vsl-page .vsl-checklist li::before,
+.vsl-page .vsl-offer-list li::before { animation: vsl-bullet-pop 2.8s ease-in-out infinite; display: inline-block; transform-origin: center; }
+.vsl-page .vsl-hero-points li:nth-child(2)::before,
+.vsl-page .vsl-tangible-list li:nth-child(2)::before,
+.vsl-page .vsl-checklist li:nth-child(2)::before,
+.vsl-page .vsl-offer-list li:nth-child(2)::before { animation-delay: .18s; }
+.vsl-page .vsl-hero-points li:nth-child(3)::before,
+.vsl-page .vsl-tangible-list li:nth-child(3)::before,
+.vsl-page .vsl-checklist li:nth-child(3)::before,
+.vsl-page .vsl-offer-list li:nth-child(3)::before { animation-delay: .36s; }
+@keyframes vsl-bullet-pop { 0%, 70%, 100% { transform: scale(1); } 78% { transform: scale(1.22); } 86% { transform: scale(.96); } }
+@media (prefers-reduced-motion: reduce) { .vsl-page li::before { animation: none !important; } }
+.vsl-page .vsl-price-anchor { color: #8b6b50; font-size: 13px; line-height: 1.5; margin: 24px auto 0; max-width: 420px; text-align: center; }
+.vsl-page .vsl-price-anchor s { color: #8b6b50; margin-right: 5px; text-decoration-thickness: 2px; }
+.vsl-page .vsl-price { margin-top: 8px; }
+.vsl-page .vsl-price strong { font-size: 68px; }
+@media (max-width: 780px) { .vsl-page .vsl-price strong { font-size: 56px; } }
+.vsl-method-intro { background: #fbf8f2; }
+.vsl-method-lead { color: var(--muted); font-size: 17px; line-height: 1.7; margin: 22px auto 0; max-width: 680px; }
+.vsl-method-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 36px auto 0; max-width: 1024px; }
+.vsl-method-grid article { background: #fffaf4; border: 1px solid #ded6c9; padding: 28px 24px; text-align: left; }
+.vsl-method-grid strong { color: var(--ink); display: block; font-size: 17px; line-height: 1.3; }
+.vsl-method-grid p { color: var(--muted); font-size: 14px; line-height: 1.65; margin: 12px 0 0; }
+.vsl-method-icon { align-items: center; background: #e5d5bf; border: 1px solid #c8aa83; border-radius: 50%; color: #806a57; display: inline-flex; font-size: 20px; font-weight: 700; height: 42px; justify-content: center; margin-bottom: 18px; width: 42px; }
+.vsl-method-grid article { border-radius: 4px; }
+.vsl-page .vsl-price strong { font-size: 62px; }
+.vsl-page .vsl-price span { color: #8b6b50; font-size: 15px; margin-top: 8px; }
+.vsl-page .vsl-price strong small { color: #8b6b50; display: inline-block; font-family: "Manrope", system-ui, sans-serif; font-size: 16px; font-weight: 700; letter-spacing: .01em; margin-right: 5px; vertical-align: middle; }
+@media (max-width: 780px) {
+  .vsl-method-grid { grid-template-columns: minmax(0, 1fr); }
+  .vsl-method-grid article { padding: 22px 20px; }
+  .vsl-method-lead { font-size: 15px; }
+  .vsl-page .vsl-price strong { font-size: 48px; }
+  .vsl-page .vsl-price strong small { font-size: 13px; }
+}
