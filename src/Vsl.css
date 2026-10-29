@@ -400,6 +400,7 @@ body:has(.vsl-page) { background: #fbf8f2; }
 .vsl-section h2 { font-size: clamp(32px, 3.5vw, 48px); line-height: 1.04; letter-spacing: -.045em; }
 .vsl-intro, .vsl-authority-grid { gap: 52px; max-width: 1024px; }
 .vsl-intro { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
+.vsl-intro h2 + .vsl-copy { margin-top: 20px; }
 .vsl-authority-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 .vsl-authority-grid h2 { font-size: clamp(32px, 3.2vw, 46px); }
 .vsl-guarantee-card h2 { font-size: clamp(32px, 3.2vw, 46px); }
@@ -461,6 +462,7 @@ body:has(.vsl-page) { background: #fbf8f2; }
 
 @media (max-width: 440px) {
   .vsl-section, .vsl-video-section { padding-left: 16px; padding-right: 16px; }
+  .vsl-page .vsl-section:has(.vsl-intro) { padding-left: 24px; padding-right: 24px; }
   .vsl-hero-inner { padding-left: 16px; padding-right: 16px; }
   .vsl-hero h1 { font-size: clamp(28px, 9.5vw, 36px); }
   .vsl-hero-points li, .vsl-tangible-list li { font-size: 13px; }
@@ -475,3 +477,108 @@ body:has(.vsl-page) { background: #fbf8f2; }
   .vsl-hero-points { margin-top: 18px; }
   .vsl-page .vsl-hero-buy { margin-top: 28px; }
 }
+
+/* Primeira dobra inspirada na referência, preservando a VSL. */
+.vsl-page .vsl-hero {
+  background: linear-gradient(90deg, rgba(16,11,9,.87) 0%, rgba(16,11,9,.72) 36%, rgba(16,11,9,.18) 70%, rgba(16,11,9,.05) 100%), url('../assets/retrato-hero-lizandra.png') center top / cover no-repeat, #100b09;
+  color: #fff8ec;
+}
+.vsl-page .vsl-hero-inner { max-width: 1120px; align-items: flex-start; text-align: left; padding: 100px 28px 64px; }
+.vsl-page .vsl-hero h1 { max-width: 560px; color: #fff8ec; font-size: clamp(32px, 3.6vw, 48px); }
+.vsl-page .vsl-hero-lead { max-width: 530px; color: #e1d5c9; }
+.vsl-page .vsl-player { align-self: center; margin-top: 36px; }
+.vsl-page .vsl-hero-buy { align-self: flex-start; width: min(100%, 560px); background: #d4ad75; color: #17100b; }
+.vsl-page .vsl-hero-points { color: #fff8ec; margin: 18px 0 26px; }
+.vsl-page .vsl-hero-points li::before { color: #d4ad75; }
+@media (max-width: 780px) {
+  .vsl-page .vsl-hero { background: linear-gradient(180deg, rgba(16,11,9,.08) 0%, rgba(16,11,9,.32) 180px, #100b09 350px), url('../assets/retrato-hero-lizandra.png') right top / auto 350px no-repeat, #100b09; }
+  .vsl-page .vsl-hero-inner { padding: 280px 20px 56px; align-items: center; text-align: center; }
+  .vsl-page .vsl-hero h1 { font-size: clamp(28px, 8vw, 36px); }
+  .vsl-page .vsl-hero-lead { max-width: 520px; }
+  .vsl-page .vsl-player { margin-top: 20px; }
+  .vsl-page .vsl-hero-buy { align-self: center; width: min(100%, 380px); }
+  .vsl-page .vsl-hero-points { margin-left: auto; margin-right: auto; }
+  .vsl-page .vsl-hero-points { text-align: left; }
+}
+
+/* Paleta Destrava: creme, marrom, preto e dourado. */
+.vsl-page { --ink: #41302a; --muted: #70574b; --paper: #f1ebe3; --cream: #f5efe8; --sage: #d3ad73; --deep-sage: #775440; --terracotta: #b0834d; background: #f5efe8; color: #41302a; }
+.vsl-page > .vsl-section { background: #f4eee6; color: #41302a; }
+.vsl-page > .vsl-benefits, .vsl-page > .vsl-proof { background: #fbf8f3; }
+.vsl-page > .vsl-section h2, .vsl-page > .vsl-section h3 { color: #41302a; }
+.vsl-page > .vsl-section h2 em { color: #8a6043; }
+.vsl-page > .vsl-section .vsl-eyebrow { color: #926734; }
+.vsl-page > .vsl-section .vsl-copy, .vsl-page > .vsl-section .vsl-proof-lead, .vsl-page > .vsl-section .vsl-benefit p, .vsl-page > .vsl-section .vsl-how-grid p, .vsl-page > .vsl-section .vsl-card p, .vsl-page > .vsl-section .vsl-faq p { color: #70574b; }
+.vsl-page .vsl-benefit, .vsl-page .vsl-how-grid article, .vsl-page .vsl-card { background: #fbf8f3; border: 1px solid #ded0bf; }
+.vsl-page .vsl-benefit:nth-child(2), .vsl-page .vsl-how-grid article:nth-child(even), .vsl-page .vsl-card:nth-child(2), .vsl-page .vsl-card:nth-child(3) { background: #eee5d9; }
+.vsl-page .vsl-benefit > span { background: #b0834d; color: #fff; }
+.vsl-page .vsl-how-grid span, .vsl-page .vsl-number, .vsl-page .vsl-proof-grid strong { color: #8a6043; }
+.vsl-page .vsl-tangible-list { border-color: #d1b48a; }
+.vsl-page .vsl-tangible-list li::before, .vsl-page .vsl-offer-list li::before, .vsl-page .vsl-faq summary span { color: #986a35; }
+.vsl-page .vsl-cta { background: #d4ad75; color: #201610; }
+.vsl-page .vsl-cta:hover { background: #e2bd85; }
+.vsl-page > .vsl-schedule { background: #eee5d9; }
+.vsl-page > .vsl-schedule h2, .vsl-page > .vsl-schedule .vsl-timeline strong { color: #41302a; }
+.vsl-page > .vsl-schedule h2 em { color: #8a6043; }
+.vsl-page > .vsl-schedule .vsl-timeline span { color: #805c35; }
+.vsl-page > .vsl-schedule .vsl-timeline p, .vsl-page > .vsl-schedule .vsl-schedule-note { color: #70574b; }
+.vsl-page > .vsl-schedule .vsl-timeline::before { background: #cbb7a0; }
+.vsl-page > .vsl-schedule .vsl-timeline > div::before { background: #b0834d; border-color: #eee5d9; }
+.vsl-page > .vsl-authority { background: #f4eee6; color: #41302a; }
+.vsl-page > .vsl-authority h2, .vsl-page > .vsl-authority .vsl-checklist li { color: #41302a; }
+.vsl-page > .vsl-authority h2 em, .vsl-page > .vsl-authority .vsl-eyebrow, .vsl-page > .vsl-authority .vsl-checklist li::before { color: #8a6043; }
+.vsl-page > .vsl-authority .vsl-copy { color: #70574b; }
+.vsl-page .vsl-portrait-label { background: rgba(32,25,22,.93); }
+.vsl-page .vsl-portrait-label span { color: #e4c392; }
+.vsl-page > .vsl-offer .vsl-offer-box { background: #fffaf4; border-color: #d8c5ae; }
+.vsl-page > .vsl-offer .vsl-offer-box h3, .vsl-page > .vsl-offer .vsl-offer-list li, .vsl-page > .vsl-offer .vsl-price strong { color: #41302a; }
+.vsl-page > .vsl-offer .vsl-offer-kicker, .vsl-page > .vsl-offer .vsl-offer-list li::before { color: #926734; }
+.vsl-page > .vsl-guarantee-section { background: #eee5d9; }
+.vsl-page > .vsl-final-cta { background: #d4ad75; color: #41302a; }
+.vsl-page > .vsl-final-cta h2 { color: #41302a; }
+.vsl-page > .vsl-final-cta .vsl-eyebrow { color: #65482d; }
+.vsl-page > .vsl-final-cta .vsl-cta { background: #41302a; color: #fffaf4; }
+.vsl-page > .vsl-footer { background: #f1ebe3; border-color: #ded0bf; }
+.vsl-page > .vsl-footer .vsl-footer-title { color: #41302a !important; }
+.vsl-page > .vsl-footer p, .vsl-page > .vsl-footer small { color: #70574b; }
+
+/* Tons mais suaves, mantendo a identidade da marca. */
+.vsl-page { --ink: #493a32; --muted: #6e5c50; --paper: #f4eee7; --cream: #f7f2ec; --sage: #cbb99d; --deep-sage: #816d5a; --terracotta: #ae9371; background: #f7f2ec; color: #493a32; }
+.vsl-page > .vsl-section, .vsl-page > .vsl-authority, .vsl-page > .vsl-schedule, .vsl-page > .vsl-guarantee-section { background: #f5efe8; color: #493a32; }
+.vsl-page > .vsl-benefits, .vsl-page > .vsl-proof { background: #faf7f2; }
+.vsl-page > .vsl-section h2, .vsl-page > .vsl-section h3, .vsl-page > .vsl-authority .vsl-checklist li, .vsl-page > .vsl-schedule .vsl-timeline strong, .vsl-page > .vsl-offer .vsl-offer-box h3, .vsl-page > .vsl-offer .vsl-offer-list li, .vsl-page > .vsl-offer .vsl-price strong { color: #493a32; }
+.vsl-page > .vsl-section h2 em, .vsl-page > .vsl-authority h2 em, .vsl-page .vsl-how-grid span, .vsl-page .vsl-number, .vsl-page .vsl-proof-grid strong { color: #806a57; }
+.vsl-page > .vsl-section .vsl-eyebrow, .vsl-page > .vsl-authority .vsl-eyebrow, .vsl-page > .vsl-authority .vsl-checklist li::before, .vsl-page > .vsl-offer .vsl-offer-kicker, .vsl-page > .vsl-offer .vsl-offer-list li::before { color: #866c4d; }
+.vsl-page > .vsl-section .vsl-copy, .vsl-page > .vsl-section .vsl-proof-lead, .vsl-page > .vsl-section .vsl-benefit p, .vsl-page > .vsl-section .vsl-how-grid p, .vsl-page > .vsl-section .vsl-card p, .vsl-page > .vsl-section .vsl-faq p, .vsl-page > .vsl-schedule .vsl-timeline p, .vsl-page > .vsl-schedule .vsl-schedule-note { color: #6e5c50; }
+.vsl-page .vsl-benefit, .vsl-page .vsl-how-grid article, .vsl-page .vsl-card { background: #faf7f2; border-color: #e3d9cc; }
+.vsl-page .vsl-benefit:nth-child(2), .vsl-page .vsl-how-grid article:nth-child(even), .vsl-page .vsl-card:nth-child(2), .vsl-page .vsl-card:nth-child(3) { background: #f2ece4; }
+.vsl-page .vsl-benefit > span, .vsl-page > .vsl-schedule .vsl-timeline > div::before { background: #ae9371; }
+.vsl-page > .vsl-schedule .vsl-timeline > div::before { border-color: #f5efe8; }
+.vsl-page .vsl-cta, .vsl-page .vsl-hero-buy { background: #d2b894; color: #30231b; }
+.vsl-page .vsl-cta:hover { background: #dec9ab; }
+.vsl-page > .vsl-final-cta { background: #e5d5bf; color: #493a32; }
+.vsl-page > .vsl-final-cta h2 { color: #493a32; }
+.vsl-page > .vsl-final-cta .vsl-cta { background: #59483c; color: #fffaf4; }
+
+/* A timeline ganha movimento apenas depois que o observador estiver ativo. */
+.vsl-timeline-animated::before { transform: scaleX(var(--timeline-progress, 0)); transform-origin: left center; transition: transform 1s ease; }
+.vsl-timeline-animated .vsl-timeline-step { opacity: 0; transform: translateY(14px); transition: opacity .6s ease var(--step-delay), transform .6s ease var(--step-delay); }
+.vsl-timeline-animated .vsl-timeline-step.is-visible { opacity: 1; transform: translateY(0); }
+.vsl-timeline-animated .vsl-timeline-step::before { transform: scale(.55); transition: transform .5s ease var(--step-delay); }
+.vsl-timeline-animated .vsl-timeline-step.is-visible::before { transform: scale(1); }
+@media (max-width: 780px) {
+  .vsl-timeline-animated::before { transform: scaleY(var(--timeline-progress, 0)); transform-origin: center top; }
+  .vsl-timeline-animated .vsl-timeline-step { transition-delay: 0ms; }
+  .vsl-timeline-animated .vsl-timeline-step::before { transition-delay: 0ms; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vsl-timeline-animated::before { transform: none; transition: none; }
+  .vsl-timeline-animated .vsl-timeline-step { opacity: 1; transform: none; transition: none; }
+  .vsl-timeline-animated .vsl-timeline-step::before { transform: none; transition: none; }
+}
+
+.vsl-page .vsl-cards .vsl-card { background: #faf7f2; }
+
+.vsl-page .vsl-offer-box .vsl-cta { background: #4f6b58; color: #fff; }
+.vsl-page .vsl-offer-box .vsl-cta:hover { background: #3d5745; }
+.vsl-page .vsl-offer-box .vsl-price { color: #6e5c50; }
